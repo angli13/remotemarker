@@ -37,6 +37,7 @@ Then you can create a RemoteMarker
             .setMarkerOptions(
                 MarkerOptions().position(location).title("Icon")
             )
+	    .setContainerIcon(R.drawable.custom_marker) //Optional
             .setSize(150)
             .build(this, mMap)
 As you can see, you will pass the usual MarkerOptions, the Url of your image, the size (squared), as well as a Context and the instance of your GoogleMap. Remember that the map should be initialized by this moment.
