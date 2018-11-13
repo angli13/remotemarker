@@ -34,9 +34,7 @@ Then you can create a RemoteMarker
 
     val remoteMarker = RemoteMarkerBuilder()
             .setCenterIconUrl("https://api.adorable.io/avatars/98/abott@adorable.png")
-            .setMarkerOptions(
-                MarkerOptions().position(location).title("Icon")
-            )
+            .setMarkerOptions(MarkerOptions().position(location).title("Icon"))
 	    .setContainerIcon(R.drawable.custom_marker) //Optional
             .setSize(150)
             .build(this, mMap)
