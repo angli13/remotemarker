@@ -13,6 +13,8 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 
 class RemoteMarker(private val context: Context,
@@ -39,16 +41,22 @@ class RemoteMarker(private val context: Context,
         setIconForMarker()
     }
 
+    private lateinit var job: Job
+
     private fun buildNewBitmap(bitmap: Bitmap) {
-        val bmOverlay = Bitmap.createBitmap(size, size, containerBitmap.config)
-        val canvas = Canvas(bmOverlay)
-        canvas.drawBitmap(scaledBitmap, Matrix(), null)
-        canvas.drawBitmap(bitmap, scaledBitmap.width*0.125f, scaledBitmap.width*0.04f, null)
-        bmOverlay?.let {
-            if (marker?.position!=null){
-                marker?.setIcon(
-                    BitmapDescriptorFactory.fromBitmap(it)
-                )
+        job = CoroutineScope(Dispatchers.IO).launch {
+            val bmOverlay = Bitmap.createBitmap(size, size, containerBitmap.config)
+            val canvas = Canvas(bmOverlay)
+            canvas.drawBitmap(scaledBitmap, Matrix(), null)
+            canvas.drawBitmap(bitmap, scaledBitmap.width*0.125f, scaledBitmap.width*0.04f, null)
+            withContext(Dispatchers.Main){
+                bmOverlay?.let {
+                    if (marker?.position!=null){
+                        marker?.setIcon(
+                            BitmapDescriptorFactory.fromBitmap(it)
+                        )
+                    }
+                }
             }
         }
     }
