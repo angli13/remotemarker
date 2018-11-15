@@ -25,9 +25,8 @@ class RemoteMarkerManager() {
     }
     fun removeAll(){
         markersMap.keys.forEach {
-            it.remove()
+            removeMarker(it)
         }
-        markersMap.clear()
     }
 
     fun getRemoteMarker(marker: Marker): RemoteMarker?{

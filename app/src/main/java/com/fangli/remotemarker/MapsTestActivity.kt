@@ -45,6 +45,7 @@ class MapsTestActivity : AppCompatActivity(), OnMapReadyCallback {
             .setMarkerOptions(
                 MarkerOptions().position(sydney).title("Marker in Sydney with icon")
             )
+            .setContainerIcon(R.drawable.custom_marker)
             .build(this, mMap)?.let {
                 manager.addMarker(it)
             }

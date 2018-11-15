@@ -24,7 +24,7 @@ import com.bumptech.glide.request.transition.Transition
 
 
 class RemoteMarker(private val context: Context,
-                   var marker: Marker,
+                   var marker: Marker?,
                    private var centerIconUrl: String,
                    private var containerIcon: Int,
                    private var size: Int = 100) {
@@ -53,9 +53,11 @@ class RemoteMarker(private val context: Context,
         canvas.drawBitmap(scaledBitmap, Matrix(), null)
         canvas.drawBitmap(bitmap, scaledBitmap.width*0.125f, scaledBitmap.width*0.04f, null)
         bmOverlay?.let {
-            marker.setIcon(
-                BitmapDescriptorFactory.fromBitmap(it)
-            )
+            if (marker?.position!=null){
+                marker?.setIcon(
+                    BitmapDescriptorFactory.fromBitmap(it)
+                )
+            }
         }
     }
 
