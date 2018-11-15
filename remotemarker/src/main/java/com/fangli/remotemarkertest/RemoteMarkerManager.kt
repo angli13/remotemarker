@@ -19,12 +19,16 @@ class RemoteMarkerManager() {
         }
     }
     fun removeMarker(marker: Marker){
-        markersMap.remove(marker)
+        val removed = markersMap.remove(marker)
         marker.remove()
+        removed?.marker=null
     }
     fun removeAll(){
         markersMap.keys.forEach {
             it.remove()
+        }
+        for (m in markersMap.values){
+            m.marker = null
         }
         markersMap.clear()
     }

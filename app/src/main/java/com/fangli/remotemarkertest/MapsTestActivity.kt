@@ -1,6 +1,8 @@
 package com.fangli.remotemarkertest
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -22,6 +24,14 @@ class MapsTestActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+    fun removeMarkers(view: View){
+        removeMarkers()
+    }
+
+    fun removeMarkers(){
+        manager.removeAll()
     }
 
     /**
@@ -58,6 +68,11 @@ class MapsTestActivity : AppCompatActivity(), OnMapReadyCallback {
 //            manager.removeMarker(it)
             true
         }
+
+        for (i in 1..10){
+            addMarker(sydney)
+        }
+        removeMarkers()
     }
 
     private fun addMarker(location: LatLng) {
