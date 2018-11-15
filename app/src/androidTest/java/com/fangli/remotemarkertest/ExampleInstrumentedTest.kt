@@ -1,4 +1,4 @@
-package com.fangli.remotemarker
+package com.fangli.remotemarkertest
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

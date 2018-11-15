@@ -1,4 +1,4 @@
-package com.fangli.remotemarker;
+package com.fangli.remotemarkertest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,6 +1,5 @@
-package com.fangli.remotemarker
+package com.fangli.remotemarkertest
 
-import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 
 class RemoteMarkerManager() {

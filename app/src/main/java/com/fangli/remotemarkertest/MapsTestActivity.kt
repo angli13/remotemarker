@@ -1,8 +1,7 @@
-package com.fangli.remotemarker
+package com.fangli.remotemarkertest
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -17,7 +16,7 @@ class MapsTestActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps_test)
+        setContentView(R.layout.activity_map_test)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -45,7 +44,7 @@ class MapsTestActivity : AppCompatActivity(), OnMapReadyCallback {
             .setMarkerOptions(
                 MarkerOptions().position(sydney).title("Marker in Sydney with icon")
             )
-            .setContainerIcon(R.drawable.custom_marker)
+            .setContainerIcon(R.drawable.custom_marker_red)
             .build(this, mMap)?.let {
                 manager.addMarker(it)
             }
@@ -53,7 +52,7 @@ class MapsTestActivity : AppCompatActivity(), OnMapReadyCallback {
             addMarker(it)
         }
         mMap.setOnMarkerClickListener {
-            manager.getRemoteMarker(it)?.setNewContainerIcon(R.drawable.custom_marker_red)
+            manager.getRemoteMarker(it)?.setNewContainerIcon(R.drawable.custom_marker)
             manager.getRemoteMarker(it)?.setNewCenterIconUrl("https://api.adorable.io/avatars/100/abott@adorable.ioas.png")
 //            manager.removeMarker(it)
             true

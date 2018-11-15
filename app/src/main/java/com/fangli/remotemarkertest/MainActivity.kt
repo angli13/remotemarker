@@ -1,8 +1,7 @@
-package com.fangli.remotemarker
+package com.fangli.remotemarkertest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.fangli.remotemarker.R
 
 class MainActivity : AppCompatActivity() {
 
