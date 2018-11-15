@@ -114,6 +114,7 @@ class RemoteMarkerBuilder() {
         if (markerOptions != null && centerIconUrl != null){
             if (containerIcon==null)
                 containerIcon=R.drawable.custom_marker
+            markerOptions?.icon(BitmapDescriptorFactory.fromResource(containerIcon!!))
             return RemoteMarker(context, map.addMarker(markerOptions), centerIconUrl!!, containerIcon!!, size)
         }
         return null
