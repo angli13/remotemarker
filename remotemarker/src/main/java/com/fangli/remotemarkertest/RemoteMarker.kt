@@ -14,7 +14,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
 
 
 class RemoteMarker(private val context: Context,
@@ -114,9 +113,10 @@ class RemoteMarkerBuilder() {
         if (markerOptions != null && centerIconUrl != null){
             if (containerIcon==null)
                 containerIcon=R.drawable.custom_marker
-            markerOptions?.icon(BitmapDescriptorFactory.fromResource(containerIcon!!))
+            markerOptions?.icon(BitmapDescriptorFactory.fromResource(R.drawable.empty))
             return RemoteMarker(context, map.addMarker(markerOptions), centerIconUrl!!, containerIcon!!, size)
         }
         return null
+
     }
 }
