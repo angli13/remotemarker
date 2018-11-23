@@ -21,7 +21,7 @@ A few features of this are:
 	}
 	
 	dependencies {
-	        implementation 'com.github.angli13:remotemarker:0.1.1'
+	        implementation 'com.github.angli13:remotemarker:0.1.53'
 	}
 
 ### Usage
